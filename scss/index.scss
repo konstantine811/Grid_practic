@@ -1,5 +1,13 @@
 @import "./reset";
 
+.container {
+  max-width: 1600px;
+  width: 100%;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin: 0 auto;
+}
+
 .section-gradient {
   background: linear-gradient(
     228.57deg,
@@ -60,7 +68,70 @@
   &__button {
   }
   &__title {
+    display: flex;
+    justify-content: center;
   }
   &__button {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.header-grid {
+  border: 3px solid black;
+  padding: 5px;
+  color: white;
+  display: grid;
+  grid-template-areas: "logo info" "logo nav";
+  justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "info" "logo" "nav";
+  }
+  &__logo,
+  &__info,
+  &__nav {
+    padding: 20px;
+    border: 1px solid;
+  }
+  &__logo {
+    border-color: white;
+    grid-area: logo;
+  }
+  &__info {
+    border-color: red;
+    grid-area: info;
+  }
+  &__nav {
+    border-color: black;
+    grid-area: nav;
+  }
+}
+
+.btn-circle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  transition: border-color 0.3s ease;
+  &:after {
+    content: "";
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  &:hover {
+    border-color: red;
+    &:after {
+      border-color: red;
+    }
   }
 }
